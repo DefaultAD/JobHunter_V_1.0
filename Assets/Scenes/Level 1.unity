@@ -3112,9 +3112,9 @@ MonoBehaviour:
   doc1: {fileID: 919132149098988234}
   doc2: {fileID: 919132148579517864}
   doc3: {fileID: 919132148610653607}
-  bel1: {fileID: 0}
-  bel2: {fileID: 0}
-  bel3: {fileID: 0}
+  bel1: {fileID: 919132147990343787}
+  bel2: {fileID: 919132148579517864}
+  bel3: {fileID: 919132147829937694}
   suit: {fileID: 919132147632560369}
   shoes: {fileID: 919132149396871055}
   toTo: {fileID: 919132147769624327}
@@ -6309,12 +6309,12 @@ Transform:
   m_LocalPosition: {x: -1.060755, y: 1.2934532, z: 100.959404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 543450651770953149}
-  - {fileID: 543450651809631709}
+  - {fileID: 543450653216699750}
+  - {fileID: 543450651908604491}
   - {fileID: 543450653331115317}
   - {fileID: 543450652443898044}
-  - {fileID: 543450651908604491}
-  - {fileID: 543450653216699750}
+  - {fileID: 543450651809631709}
+  - {fileID: 543450651770953149}
   m_Father: {fileID: 1624608917}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8400,7 +8400,7 @@ Transform:
   m_LocalScale: {x: 6.124, y: 6.124, z: 6.124}
   m_Children: []
   m_Father: {fileID: 1738911137}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 51.613, y: 16.667, z: -9.725}
 --- !u!4 &543450651809631709
 Transform:
@@ -8414,7 +8414,7 @@ Transform:
   m_LocalScale: {x: 1.50018, y: 1.50018, z: 1.50018}
   m_Children: []
   m_Father: {fileID: 1738911137}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -67.684, y: -202.675, z: 126.407}
 --- !u!4 &543450651837582500
 Transform:
@@ -8444,7 +8444,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1738911137}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: -49.20398}
 --- !u!4 &543450652180792096
 Transform:
@@ -8562,7 +8562,7 @@ Transform:
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 1738911137}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 11.143997}
 --- !u!4 &543450653231741205
 Transform:

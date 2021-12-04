@@ -161,17 +161,23 @@ public class Player : MonoBehaviour
             {
                 doc1Active = true;
                 DeactivateCostumes();
+
+                coat.SetActive(false);
             }
             if (other.gameObject.name == "Door5")
             {
                 doc2Active = true;
                 DeactivateCostumes();
+
+                hat.SetActive(false);
             }
             if(other.gameObject.name == "Door6")
             {
                 win = true;
                 doc3Active = true;
                 DeactivateCostumes();
+
+                doctorBag.SetActive(false);
             }
 
             if (scoreDocCheck == true)
@@ -218,7 +224,7 @@ public class Player : MonoBehaviour
                 bel1Active = true;
                 DeactivateCostumes();
 
-                toTo.SetActive(false);
+                shoes.SetActive(false);
             }
 
             if (other.gameObject.name == "Door7")
@@ -226,7 +232,7 @@ public class Player : MonoBehaviour
                 bel2Active = true;
                 DeactivateCostumes();
 
-                shoes.SetActive(false);
+                toTo.SetActive(false);
             }                       
 
             if (scoreBalCheck == true)
