@@ -30,17 +30,17 @@ public class Player : MonoBehaviour
     public GameObject doc1;
     public GameObject doc2;
     public GameObject doc3;
-    public GameObject bel1;
-    public GameObject bel2;
-    public GameObject bel3;
+    public GameObject bal1;
+    public GameObject bal2;
+    public GameObject bal3;
 
     bool nakedPlayerActive;
     bool doc1Active;
     bool doc2Active;
     bool doc3Active;
-    bool bel1Active;
-    bool bel2Active;
-    bool bel3Active;
+    bool bal1Active;
+    bool bal2Active;
+    bool bal3Active;
 
     [Header("Door GameObjects")]
     public GameObject suit;
@@ -65,36 +65,8 @@ public class Player : MonoBehaviour
         nakedPlayerActive = true;
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.tag == "PickUp1" && scoreDocCheck == true)
-        {
-            TakeScore(PickUpValue);
-            other.gameObject.SetActive(false);
-        }
-        else if (other.tag == "PickUp1" && scoreBalCheck == true)
-        {
-            TakeScore(-PickUpValue);
-            other.gameObject.SetActive(false);
-        }
-
-        if (other.tag == "PickUp2" && scoreBalCheck == true)
-        {
-            TakeScore(PickUpValue);
-            other.gameObject.SetActive(false);
-        }
-        else if (other.tag == "PickUp2" && scoreDocCheck == true)
-        {
-            TakeScore(-PickUpValue);
-            other.gameObject.SetActive(false);
-        }
-
 
         if (other.tag == "PickUp1")
         {
@@ -144,11 +116,13 @@ public class Player : MonoBehaviour
             if (scoreDocCheck != true)
             {
                 Instantiate(particlePowerDown, particlesPosition.transform.position, Quaternion.identity);
+                TakeScore(-CorrectDoorValue);
             }
 
             if (scoreDocCheck == true)
             {
                 Instantiate(particlePowerUp, particlesPosition.transform.position, Quaternion.identity);
+                TakeScore(CorrectDoorValue);
             }
 
             if (other.gameObject.name == "Door2")
@@ -174,14 +148,19 @@ public class Player : MonoBehaviour
                 doctorBag.SetActive(false);
             }
 
-            if (scoreDocCheck == true)
-            {
-                TakeScore(CorrectDoorValue);
-            }
-            else if (scoreBalCheck == true)
-            {
-                TakeScore(-CorrectDoorValue);
-            }
+            //if (scoreDocCheck == true)
+            //{
+            //    Debug.Log("Score Doctor Check Doctor DOor!");
+            //    TakeScore(CorrectDoorValue);
+            //}
+            //else
+            //{
+            //    TakeScore(-CorrectDoorValue);
+            //}
+            //else if (scoreBalCheck == true)
+            //{
+            //    TakeScore(-CorrectDoorValue);
+            //}
         }
 
         if (other.tag == "BallerinaDoor")
@@ -197,16 +176,18 @@ public class Player : MonoBehaviour
             if (scoreBalCheck != true)
             {
                 Instantiate(particlePowerDown, particlesPosition.transform.position, Quaternion.identity);
+                TakeScore(-CorrectDoorValue);
             }
 
             if (scoreBalCheck == true)
             {
                 Instantiate(particleHearts, particlesPosition.transform.position, Quaternion.identity);
+                TakeScore(CorrectDoorValue);
             }
 
             if (other.gameObject.name == "Door3")
             {
-                bel1Active = true;
+                bal1Active = true;
                 DeactivateCostumes();
 
                 suit.SetActive(false);
@@ -214,7 +195,7 @@ public class Player : MonoBehaviour
 
             if (other.gameObject.name == "Door4")
             {
-                bel2Active = true;
+                bal2Active = true;
                 DeactivateCostumes();
 
                 shoes.SetActive(false);
@@ -222,26 +203,31 @@ public class Player : MonoBehaviour
 
             if (other.gameObject.name == "Door7")
             {
-                bel3Active = true;
+                bal3Active = true;
                 DeactivateCostumes();
 
                 toTo.SetActive(false);
             }                       
 
-            if (scoreBalCheck == true)
-            {
-                TakeScore(CorrectDoorValue);
-            }
-            else if (scoreDocCheck == true)
-            {
-                TakeScore(-CorrectDoorValue);
-            }
+            //if (scoreBalCheck == true)
+            //{
+            //    TakeScore(CorrectDoorValue);
+            //}
+            //else
+            //{
+            //    TakeScore(-CorrectDoorValue);
+            //}
+
+            //else if (scoreDocCheck == true)
+            //{
+            //    TakeScore(-CorrectDoorValue);
+            //}
         }
 
-        if (other.tag == "FinalDoor")
-        {
-            TakeScore(CorrectDoorValue);
-        }
+        //if (other.tag == "FinalDoor")
+        //{
+        //    TakeScore(CorrectDoorValue);
+        //}
 
         if (other.tag == "EndLevelScene" && win == true)
         {
@@ -258,6 +244,12 @@ public class Player : MonoBehaviour
         {
             currentScore = 0;
         }
+
+        if (currentScore > 100)
+        {
+            currentScore = 100;
+        }
+
         Debug.Log(currentScore);
         scoreBar.SetScore(currentScore);
     }    
@@ -269,9 +261,9 @@ public class Player : MonoBehaviour
             doc1.gameObject.SetActive(false);
             doc2.gameObject.SetActive(false);
             doc3.gameObject.SetActive(false);
-            bel1.gameObject.SetActive(false);
-            bel2.gameObject.SetActive(false);
-            bel3.gameObject.SetActive(false);
+            bal1.gameObject.SetActive(false);
+            bal2.gameObject.SetActive(false);
+            bal3.gameObject.SetActive(false);
 
             if (doc1Active == true)
             {
@@ -280,9 +272,9 @@ public class Player : MonoBehaviour
                 nakedPlayer.gameObject.SetActive(false);
                 doc2.gameObject.SetActive(false);
                 doc3.gameObject.SetActive(false);
-                bel1.gameObject.SetActive(false);
-                bel2.gameObject.SetActive(false);
-                bel3.gameObject.SetActive(false);
+                bal1.gameObject.SetActive(false);
+                bal2.gameObject.SetActive(false);
+                bal3.gameObject.SetActive(false);
             }
 
             if (doc2Active == true)
@@ -292,9 +284,9 @@ public class Player : MonoBehaviour
                 nakedPlayer.gameObject.SetActive(false);
                 doc1.gameObject.SetActive(false);
                 doc3.gameObject.SetActive(false);
-                bel1.gameObject.SetActive(false);
-                bel2.gameObject.SetActive(false);
-                bel3.gameObject.SetActive(false);
+                bal1.gameObject.SetActive(false);
+                bal2.gameObject.SetActive(false);
+                bal3.gameObject.SetActive(false);
             }
 
             if (doc3Active == true)
@@ -304,52 +296,52 @@ public class Player : MonoBehaviour
                 nakedPlayer.gameObject.SetActive(false);
                 doc1.gameObject.SetActive(false);
                 doc2.gameObject.SetActive(false);
-                bel1.gameObject.SetActive(false);
-                bel2.gameObject.SetActive(false);
-                bel3.gameObject.SetActive(false);
+                bal1.gameObject.SetActive(false);
+                bal2.gameObject.SetActive(false);
+                bal3.gameObject.SetActive(false);
             }
 
-            if (bel1Active == true)
+            if (bal1Active == true)
             {
-                bel1.gameObject.SetActive(true);
+                bal1.gameObject.SetActive(true);
 
                 nakedPlayer.gameObject.SetActive(false);
                 doc1.gameObject.SetActive(false);
                 doc2.gameObject.SetActive(false);
                 doc3.gameObject.SetActive(false);
-                bel2.gameObject.SetActive(false);
-                bel3.gameObject.SetActive(false);
+                bal2.gameObject.SetActive(false);
+                bal3.gameObject.SetActive(false);
             }
 
-            if (bel2Active == true)
+            if (bal2Active == true)
             {
-                bel2.gameObject.SetActive(true);
+                bal2.gameObject.SetActive(true);
 
                 nakedPlayer.gameObject.SetActive(false);
                 doc1.gameObject.SetActive(false);
                 doc2.gameObject.SetActive(false);
                 doc3.gameObject.SetActive(false);
-                bel1.gameObject.SetActive(false);
-                bel3.gameObject.SetActive(false);
+                bal1.gameObject.SetActive(false);
+                bal3.gameObject.SetActive(false);
             }
 
-            if (bel3Active == true)
+            if (bal3Active == true)
             {
-                bel2.gameObject.SetActive(true);
+                bal2.gameObject.SetActive(true);
 
                 nakedPlayer.gameObject.SetActive(false);
                 doc1.gameObject.SetActive(false);
                 doc2.gameObject.SetActive(false);
                 doc3.gameObject.SetActive(false);
-                bel1.gameObject.SetActive(false);
-                bel2.gameObject.SetActive(false);
+                bal1.gameObject.SetActive(false);
+                bal2.gameObject.SetActive(false);
             }
         }            
 
         doc1Active = false;
         doc2Active = false;
         doc3Active = false;
-        bel1Active = false;
-        bel2Active = false;
+        bal1Active = false;
+        bal2Active = false;
     }
 }

@@ -3077,7 +3077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7a0bb784f7a487ab2ef3ae427ed39a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 6
+  movementSpeed: 8
   touchSensitivity: 0.0125
   movementLimit: 4
   initialized: 0
@@ -3098,9 +3098,9 @@ MonoBehaviour:
   maxScore: 100
   currentScore: 0
   win: 0
-  CorrectDoorValue: 25
+  CorrectDoorValue: 15
   IncorrectDoorValue: -25
-  PickUpValue: 2
+  PickUpValue: 3
   ObstacleLoseValue: -5
   particlesPosition: {fileID: 1087497196}
   particleHearts: {fileID: 3650847509605849336, guid: 8d79b58d0ea5dea47898c15da35210f2, type: 3}
@@ -3112,9 +3112,9 @@ MonoBehaviour:
   doc1: {fileID: 919132149098988234}
   doc2: {fileID: 919132148579517864}
   doc3: {fileID: 919132148610653607}
-  bel1: {fileID: 919132147990343787}
-  bel2: {fileID: 919132148579517864}
-  bel3: {fileID: 919132147829937694}
+  bal1: {fileID: 919132147990343787}
+  bal2: {fileID: 919132147829937694}
+  bal3: {fileID: 919132147829937694}
   suit: {fileID: 919132147632560369}
   shoes: {fileID: 919132149396871055}
   toTo: {fileID: 919132147769624327}
@@ -3600,7 +3600,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 4
+  near clip plane: 6
   far clip plane: 100
   field of view: 87
   orthographic: 0
