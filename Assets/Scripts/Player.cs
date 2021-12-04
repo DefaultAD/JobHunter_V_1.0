@@ -103,13 +103,11 @@ public class Player : MonoBehaviour
             {
                 Instantiate(particlePlus, particlesPosition.transform.position, Quaternion.identity);
                 TakeScore(PickUpValue);
-                Debug.Log(currentScore);
             }
             else if (scoreBalCheck == true)
             {
                 Instantiate(particlePowerDown, particlesPosition.transform.position, Quaternion.identity);
                 TakeScore(-PickUpValue);
-                Debug.Log(currentScore);
             }
             other.gameObject.SetActive(false);
 
@@ -123,13 +121,11 @@ public class Player : MonoBehaviour
             {
                 Instantiate(particlePlus, particlesPosition.transform.position, Quaternion.identity);
                 TakeScore(PickUpValue);
-                Debug.Log(currentScore);
             }
             else if (scoreDocCheck == true)
             {
                 Instantiate(particlePowerDown, particlesPosition.transform.position, Quaternion.identity);
                 TakeScore(-PickUpValue);
-                Debug.Log(currentScore);
             }
 
             other.gameObject.SetActive(false);
@@ -137,8 +133,6 @@ public class Player : MonoBehaviour
 
         if (other.tag == "DoctorDoor")
         {
-            
-            Debug.Log(currentScore);
 
             if (other.gameObject.name == "Door0DoctorChange")
             {
@@ -191,9 +185,7 @@ public class Player : MonoBehaviour
         }
 
         if (other.tag == "BallerinaDoor")
-        {
-
-            Debug.Log(currentScore);
+        {   
 
             if(other.gameObject.name == "Door1BallerinaChange")
             {
@@ -214,6 +206,7 @@ public class Player : MonoBehaviour
 
             if (other.gameObject.name == "Door3")
             {
+                bel1Active = true;
                 DeactivateCostumes();
 
                 suit.SetActive(false);
@@ -221,7 +214,7 @@ public class Player : MonoBehaviour
 
             if (other.gameObject.name == "Door4")
             {
-                bel1Active = true;
+                bel2Active = true;
                 DeactivateCostumes();
 
                 shoes.SetActive(false);
@@ -229,7 +222,7 @@ public class Player : MonoBehaviour
 
             if (other.gameObject.name == "Door7")
             {
-                bel2Active = true;
+                bel3Active = true;
                 DeactivateCostumes();
 
                 toTo.SetActive(false);
@@ -265,7 +258,7 @@ public class Player : MonoBehaviour
         {
             currentScore = 0;
         }
-
+        Debug.Log(currentScore);
         scoreBar.SetScore(currentScore);
     }    
 
