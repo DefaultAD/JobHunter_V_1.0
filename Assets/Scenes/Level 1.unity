@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.43732908, g: 0.4851073, b: 0.5653758, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1068,13 +1068,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovementScript: {fileID: 823946281}
   playerScript: {fileID: 823946282}
-  roofs:
-  - {fileID: 9190314497762908785}
-  - {fileID: 1331808287306645462}
-  - {fileID: 4777462192940592127}
-  - {fileID: 3273888339305751317}
-  - {fileID: 2104235138346270503}
-  standardMat: {fileID: 2100000, guid: ba3ae7f3c35e5dd48bd3abe8647744fc, type: 2}
 --- !u!4 &311756517
 Transform:
   m_ObjectHideFlags: 0
@@ -2932,7 +2925,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.99607843, b: 0.6431373, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
@@ -2941,7 +2934,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -2990,7 +2983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.6498712, y: -0, z: -0, w: 0.7600444}
-  m_LocalPosition: {x: 0, y: 26.72, z: 0}
+  m_LocalPosition: {x: 0, y: 13.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3607,9 +3600,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 6
+  near clip plane: 4
   far clip plane: 100
-  field of view: 88
+  field of view: 87
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
