@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public GameObject particlesPosition;
     public ParticleSystem particleHearts;
     public ParticleSystem particlePlus;
-    public ParticleSystem particlePlumber;
+    public ParticleSystem particlePowerDown;
     public ParticleSystem particlePowerUp;
     public ParticleSystem particleWin;
 
@@ -73,23 +73,23 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "DoctorPickUp" && scoreDocCheck == true)
+        if (other.tag == "PickUp1" && scoreDocCheck == true)
         {
             TakeScore(PickUpValue);
             other.gameObject.SetActive(false);
         }
-        else if (other.tag == "DoctorPickUp" && scoreBalCheck == true)
+        else if (other.tag == "PickUp1" && scoreBalCheck == true)
         {
             TakeScore(-PickUpValue);
             other.gameObject.SetActive(false);
         }
 
-        if (other.tag == "BallerinaPickUp" && scoreBalCheck == true)
+        if (other.tag == "PickUp2" && scoreBalCheck == true)
         {
             TakeScore(PickUpValue);
             other.gameObject.SetActive(false);
         }
-        else if (other.tag == "BallerinaPickUp" && scoreDocCheck == true)
+        else if (other.tag == "PickUp2" && scoreDocCheck == true)
         {
             TakeScore(-PickUpValue);
             other.gameObject.SetActive(false);
@@ -98,15 +98,16 @@ public class Player : MonoBehaviour
 
         if (other.tag == "PickUp1")
         {
-            Instantiate(particlePlus, particlesPosition.transform.position, Quaternion.identity);
-            
+                        
             if (scoreDocCheck == true)
             {
+                Instantiate(particlePlus, particlesPosition.transform.position, Quaternion.identity);
                 TakeScore(PickUpValue);
                 Debug.Log(currentScore);
             }
             else if (scoreBalCheck == true)
             {
+                Instantiate(particlePowerDown, particlesPosition.transform.position, Quaternion.identity);
                 TakeScore(-PickUpValue);
                 Debug.Log(currentScore);
             }
@@ -117,15 +118,16 @@ public class Player : MonoBehaviour
 
         if (other.tag == "PickUp2")
         {
-            Instantiate(particlePlus, particlesPosition.transform.position, Quaternion.identity);
-
+            
             if (scoreBalCheck == true)
             {
+                Instantiate(particlePlus, particlesPosition.transform.position, Quaternion.identity);
                 TakeScore(PickUpValue);
                 Debug.Log(currentScore);
             }
             else if (scoreDocCheck == true)
             {
+                Instantiate(particlePowerDown, particlesPosition.transform.position, Quaternion.identity);
                 TakeScore(-PickUpValue);
                 Debug.Log(currentScore);
             }
@@ -135,7 +137,6 @@ public class Player : MonoBehaviour
 
         if (other.tag == "DoctorDoor")
         {
-            Instantiate(particlePowerUp, particlesPosition.transform.position, Quaternion.identity);
             
             Debug.Log(currentScore);
 
@@ -144,6 +145,16 @@ public class Player : MonoBehaviour
                 Debug.Log("Color check!");
                 scoreDocCheck = true;
                 scoreBalCheck = false;                
+            }
+
+            if (scoreDocCheck != true)
+            {
+                Instantiate(particlePowerDown, particlesPosition.transform.position, Quaternion.identity);
+            }
+
+            if (scoreDocCheck == true)
+            {
+                Instantiate(particlePowerUp, particlesPosition.transform.position, Quaternion.identity);
             }
 
             if (other.gameObject.name == "Door2")
@@ -174,8 +185,7 @@ public class Player : MonoBehaviour
         }
 
         if (other.tag == "BallerinaDoor")
-        {            
-            Instantiate(particleHearts, particlesPosition.transform.position, Quaternion.identity);
+        {
 
             Debug.Log(currentScore);
 
@@ -184,6 +194,16 @@ public class Player : MonoBehaviour
                 Debug.Log("Color check!");
                 scoreDocCheck = false;
                 scoreBalCheck = true;
+            }
+
+            if (scoreBalCheck != true)
+            {
+                Instantiate(particlePowerDown, particlesPosition.transform.position, Quaternion.identity);
+            }
+
+            if (scoreBalCheck == true)
+            {
+                Instantiate(particleHearts, particlesPosition.transform.position, Quaternion.identity);
             }
 
             if (other.gameObject.name == "Door3")

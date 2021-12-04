@@ -19,18 +19,15 @@ public class PickUpColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+               
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Player playerScript = player.GetComponent<Player>();
-
         score1PickUpCheck = playerScript.scoreDocCheck;
         score2PickUpCheck = playerScript.scoreBalCheck;
-
         //score1PickUpCheck.Equals(player.scoreDocCheck);
         //score2PickUpCheck.Equals(player.scoreBalCheck);
 
@@ -58,7 +55,7 @@ public class PickUpColor : MonoBehaviour
             redPickUp.SetActive(false);
         }
 
-        if (score2PickUpCheck == true && pickUp.tag == "PickUp1")
+        else if (score2PickUpCheck == true && pickUp.tag == "PickUp1")
         {
             greenPickUp.SetActive(false);
             redPickUp.SetActive(true);
