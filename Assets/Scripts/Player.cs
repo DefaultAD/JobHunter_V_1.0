@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class Player : MonoBehaviour
     bool bal2Active;
     bool bal3Active;
 
+    //private Ballerina Ballerina;
+
     [Header("Door GameObjects")]
     public GameObject suit;
     public GameObject shoes;
@@ -53,6 +56,8 @@ public class Player : MonoBehaviour
     public bool scoreDocCheck;
     public bool scoreBalCheck;
 
+    public Text scoreText;
+
 
     void Start()
     {
@@ -63,6 +68,7 @@ public class Player : MonoBehaviour
         scoreBalCheck = false;
 
         nakedPlayerActive = true;
+        scoreText.text = "Unemployed";
     }
 
     private void OnTriggerEnter(Collider other)
@@ -171,6 +177,8 @@ public class Player : MonoBehaviour
                 Debug.Log("Color check!");
                 scoreDocCheck = false;
                 scoreBalCheck = true;
+
+                //Ballerina.BallerinaState = 1;
             }
 
             if (scoreBalCheck != true)
@@ -248,6 +256,50 @@ public class Player : MonoBehaviour
         if (currentScore > 100)
         {
             currentScore = 100;
+        }
+
+        //Doctor Score Text
+
+        if (currentScore >= 20 && currentScore < 40 && scoreDocCheck == true)
+        {
+            scoreText.text = "Scrub";
+        }
+
+        if(currentScore >= 40 && currentScore < 60 && scoreDocCheck == true)
+        {
+            scoreText.text = "Nurse";
+        }
+
+        if (currentScore >= 60 && currentScore < 80 && scoreDocCheck == true)
+        {
+            scoreText.text = "Doctor";
+        }
+
+        if (currentScore >= 80 && currentScore <= 100 && scoreDocCheck == true)
+        {
+            scoreText.text = "Surgeon";
+        }
+
+        //Ballerina Score Text
+
+        if (currentScore >= 20 && currentScore < 40 && scoreBalCheck == true)
+        {
+            scoreText.text = "Student";
+        }
+
+        if (currentScore >= 40 && currentScore < 60 && scoreBalCheck == true)
+        {
+            scoreText.text = "Novice";
+        }
+
+        if (currentScore >= 60 && currentScore < 80 && scoreBalCheck == true)
+        {
+            scoreText.text = "Intermediate";
+        }
+
+        if (currentScore >= 80 && currentScore <= 100 && scoreBalCheck == true)
+        {
+            scoreText.text = "Ballerina";
         }
 
         Debug.Log(currentScore);

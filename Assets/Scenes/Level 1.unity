@@ -3290,6 +3290,7 @@ MonoBehaviour:
   doctorBag: {fileID: 919132147822958439}
   scoreDocCheck: 1
   scoreBalCheck: 1
+  scoreText: {fileID: 857946871}
 --- !u!136 &823946283
 CapsuleCollider:
   m_ObjectHideFlags: 0
