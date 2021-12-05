@@ -240,6 +240,7 @@ public class Player : MonoBehaviour
         if (other.tag == "EndLevelScene" && win == true)
         {
             Instantiate(particleWin, particlesPosition.transform.position, Quaternion.identity);
+            scoreText.gameObject.SetActive(false);
         }
 
     }
@@ -260,12 +261,17 @@ public class Player : MonoBehaviour
 
         //Doctor Score Text
 
-        if (currentScore >= 20 && currentScore < 40 && scoreDocCheck == true)
+        if (currentScore <= 15 && scoreDocCheck == true)
         {
             scoreText.text = "Scrub";
         }
 
-        if(currentScore >= 40 && currentScore < 60 && scoreDocCheck == true)
+        if (currentScore >= 15 && currentScore < 35 && scoreDocCheck == true)
+        {
+            scoreText.text = "Scrub";
+        }
+
+        if(currentScore >= 35 && currentScore < 60 && scoreDocCheck == true)
         {
             scoreText.text = "Nurse";
         }
@@ -282,12 +288,17 @@ public class Player : MonoBehaviour
 
         //Ballerina Score Text
 
-        if (currentScore >= 20 && currentScore < 40 && scoreBalCheck == true)
+        if (currentScore <= 15 && scoreBalCheck == true)
         {
             scoreText.text = "Student";
         }
 
-        if (currentScore >= 40 && currentScore < 60 && scoreBalCheck == true)
+        if (currentScore >= 15 && currentScore < 35 && scoreBalCheck == true)
+        {
+            scoreText.text = "Student";
+        }
+
+        if (currentScore >= 35 && currentScore < 60 && scoreBalCheck == true)
         {
             scoreText.text = "Novice";
         }
