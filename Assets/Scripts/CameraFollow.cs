@@ -4,24 +4,44 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform playerTransform;
+    public Transform balTransform;
+    public Transform docTransform;
     public Vector3 cameraOffset;
     public float smoothFactor = 0.5f;
     public bool lookAtPlayer = false;
 
+    public PlayerMovement playerMovement;
+    public Player player;
+
     private void Start()
     {
-        cameraOffset = transform.position - playerTransform.transform.position;
+        //cameraOffset = transform.position - balTransform.transform.position;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
-        Vector3 docPosition = playerTransform.transform.position + cameraOffset;
-        transform.position = Vector3.Slerp(transform.position, docPosition, smoothFactor);
-
-        if (lookAtPlayer)
+        if (playerMovement.camFollow == true && player.scoreBalCheck == true)
         {
-            transform.LookAt(playerTransform);
+            Debug.Log("yes it works! fuck yes!");
+            Vector3 playerPosition = balTransform.transform.position + new Vector3(0, 3, -3.2f);
+            transform.position = Vector3.Slerp(transform.position, playerPosition, smoothFactor);
+
+            if (lookAtPlayer)
+            {
+                transform.LookAt(balTransform);
+            }
+        }
+
+        if (playerMovement.camFollow == true && player.scoreDocCheck == true)
+        {
+            Debug.Log("yes it works! fuck yes!");
+            Vector3 playerPosition = docTransform.transform.position + new Vector3(0, 3, -3.2f);
+            transform.position = Vector3.Slerp(transform.position, playerPosition, smoothFactor);
+
+            if (lookAtPlayer)
+            {
+                transform.LookAt(docTransform);
+            }
         }
     }
 }

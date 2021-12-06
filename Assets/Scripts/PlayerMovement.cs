@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float movementLimit;
 
     public bool initialized;
+    public bool camFollow = false;
 
     public float cameraOffset;
     Touch touch;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public void Start()
     {
         initialized = true;
+        camFollow = false;
     }
 
     private void Update()
@@ -23,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         if (initialized)
         {
             Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + (Time.deltaTime * movementSpeed));
-            //Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y,  newPos.z - cameraOffset);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y,  newPos.z - cameraOffset);
 
             transform.position = newPos;
 
@@ -53,8 +55,9 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "EndLevelScene")
-        {            
+        {
             initialized = false;
+            camFollow = true;
         }
     }
 }

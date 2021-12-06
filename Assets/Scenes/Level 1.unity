@@ -3192,7 +3192,8 @@ MonoBehaviour:
   touchSensitivity: 0.0125
   movementLimit: 4
   initialized: 0
-  cameraOffset: 4
+  camFollow: 0
+  cameraOffset: 5
 --- !u!114 &823946282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3938,7 +3939,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 3.6
+  near clip plane: 2
   far clip plane: 100
   field of view: 110
   orthographic: 0
@@ -4009,10 +4010,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421d18cbe56ff04aa34920e0de70827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 204028141}
-  cameraOffset: {x: 0, y: 0, z: 0}
+  balTransform: {fileID: 1615890781}
+  docTransform: {fileID: 204028141}
+  cameraOffset: {x: 0, y: 20, z: 0}
   smoothFactor: 0.5
   lookAtPlayer: 0
+  playerMovement: {fileID: 823946281}
+  player: {fileID: 823946282}
 --- !u!1001 &965650130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5506,6 +5510,7 @@ GameObject:
   - component: {fileID: 1350334099}
   - component: {fileID: 1350334098}
   - component: {fileID: 1350334097}
+  - component: {fileID: 1350334100}
   m_Layer: 0
   m_Name: DocCamera
   m_TagString: Untagged
@@ -5578,6 +5583,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1350334100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350334096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1421d18cbe56ff04aa34920e0de70827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balTransform: {fileID: 0}
+  docTransform: {fileID: 0}
+  cameraOffset: {x: 0, y: 0, z: 0}
+  smoothFactor: 0.5
+  lookAtPlayer: 0
+  playerMovement: {fileID: 823946281}
+  player: {fileID: 0}
 --- !u!1001 &1359006754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6755,6 +6779,11 @@ MonoBehaviour:
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
   fill: {fileID: 1987733759}
+--- !u!4 &1615890781 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5465940246521907071, guid: 1b6cd5d6a76d7fb41baa39e5ec1c4f4f, type: 3}
+  m_PrefabInstance: {fileID: 252957165}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1616722845
 PrefabInstance:
   m_ObjectHideFlags: 0

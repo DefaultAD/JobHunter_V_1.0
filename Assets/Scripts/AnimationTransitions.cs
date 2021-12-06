@@ -61,11 +61,11 @@ public class AnimationTransitions : MonoBehaviour
         {        
             if (gameManager.playerScript.scoreDocCheck == true)
             {
-                playerOne.transform.position = newPositionDoc.transform.position;                
+                //playerOne.transform.position = newPositionDoc.transform.position;                
             }
             if (gameManager.playerScript.scoreBalCheck == true)
             {
-                playerOne.transform.position = newPositionBal.transform.position;
+                //playerOne.transform.position = newPositionBal.transform.position;
             }
 
             //mainCamera.gameObject.SetActive(false);
