@@ -67,6 +67,12 @@ public class DoorChange : MonoBehaviour
 
         }
 
+        if (other.name == "DocNPCSpawn")
+        {
+            docNPC.SetActive(true);
+            balNPC.SetActive(false);
+        }
+
         if (other.name == "Door1BallerinaChange")
         {
             foreach (var obj in ballerinaDoors)
@@ -85,6 +91,11 @@ public class DoorChange : MonoBehaviour
             docNameplate.SetActive(false);
             balNameplate.SetActive(true);
 
+            
+        }
+
+        if (other.name == "BelNPCSpawn")
+        {
             balNPC.SetActive(true);
             docNPC.SetActive(false);
         }

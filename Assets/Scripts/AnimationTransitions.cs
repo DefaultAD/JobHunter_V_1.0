@@ -15,13 +15,16 @@ public class AnimationTransitions : MonoBehaviour
     public GameObject newPositionDoc;
     public GameObject newPositionBal;
 
-    public Camera mainCam;
-    public Camera endCamDoc;
-    public Camera endCamBal;
+    public Camera mainCamera;
+    public Camera docCamera;
+    public Camera belCamera;
 
     // Start is called before the first frame update
     void Start()
     {
+        docCamera.gameObject.SetActive(false);
+        belCamera.gameObject.SetActive(false);
+
         animationFail.SetBool("isWalking", true);
         animationFail.SetBool("isDancing", false);
 
@@ -32,9 +35,6 @@ public class AnimationTransitions : MonoBehaviour
         animationBal.SetBool("isDancing", false);
 
         scoreCanvas.gameObject.SetActive(true);
-
-        mainCam.gameObject.SetActive(true);
-        endCamDoc.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -63,19 +63,19 @@ public class AnimationTransitions : MonoBehaviour
         }
 
         if (other.tag == "EndLevelScene")
-        {
+        {        
             if (gameManager.playerScript.scoreDocCheck == true)
             {
                 playerOne.transform.position = newPositionDoc.transform.position;
-                //endCamDoc.gameObject.SetActive(true);
+                docCamera.gameObject.SetActive(true);
             }
             if (gameManager.playerScript.scoreBalCheck == true)
             {
                 playerOne.transform.position = newPositionBal.transform.position;
-                //endCamBal.gameObject.SetActive(true);
+                belCamera.gameObject.SetActive(true);
             }
 
-            //mainCam.gameObject.SetActive(false);
+            mainCamera.gameObject.SetActive(false);
             scoreCanvas.gameObject.SetActive(false);
 
             animationFail.SetBool("isDancing", true);

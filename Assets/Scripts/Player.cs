@@ -60,6 +60,8 @@ public class Player : MonoBehaviour
     public bool failRun;
     public bool WinRun;
 
+    PlayerMovement playerMovement;
+
 
     void Start()
     {
@@ -224,7 +226,9 @@ public class Player : MonoBehaviour
         //}
 
         if (other.tag == "EndLevelScene")
-        {
+        {            
+            this.gameObject.transform.Rotate(0f, 180f, 0f, Space.Self);
+
             if (currentScore > 80)
             {
                 Instantiate(particleWin, particlesPosition.transform.position, Quaternion.identity);
