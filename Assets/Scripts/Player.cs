@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     public GameObject bal1;
     public GameObject bal2;
     public GameObject bal3;
+    public GameObject balDoc;
 
     bool nakedPlayerActive;
     bool doc1Active;
@@ -42,8 +43,6 @@ public class Player : MonoBehaviour
     bool bal1Active;
     bool bal2Active;
     bool bal3Active;
-
-    //private Ballerina Ballerina;
 
     [Header("Door GameObjects")]
     public GameObject suit;
@@ -57,6 +56,9 @@ public class Player : MonoBehaviour
     public bool scoreBalCheck;
 
     public Text scoreText;
+
+    public bool failRun;
+    public bool WinRun;
 
 
     void Start()
@@ -177,8 +179,6 @@ public class Player : MonoBehaviour
                 Debug.Log("Color check!");
                 scoreDocCheck = false;
                 scoreBalCheck = true;
-
-                //Ballerina.BallerinaState = 1;
             }
 
             if (scoreBalCheck != true)
@@ -215,21 +215,7 @@ public class Player : MonoBehaviour
                 DeactivateCostumes();
 
                 toTo.SetActive(false);
-            }                       
-
-            //if (scoreBalCheck == true)
-            //{
-            //    TakeScore(CorrectDoorValue);
-            //}
-            //else
-            //{
-            //    TakeScore(-CorrectDoorValue);
-            //}
-
-            //else if (scoreDocCheck == true)
-            //{
-            //    TakeScore(-CorrectDoorValue);
-            //}
+            }
         }
 
         //if (other.tag == "FinalDoor")
@@ -237,9 +223,12 @@ public class Player : MonoBehaviour
         //    TakeScore(CorrectDoorValue);
         //}
 
-        if (other.tag == "EndLevelScene" && win == true)
+        if (other.tag == "EndLevelScene")
         {
-            Instantiate(particleWin, particlesPosition.transform.position, Quaternion.identity);
+            if (currentScore > 80)
+            {
+                Instantiate(particleWin, particlesPosition.transform.position, Quaternion.identity);
+            }
             scoreText.gameObject.SetActive(false);
         }
 
@@ -390,8 +379,14 @@ public class Player : MonoBehaviour
 
             if (bal3Active == true)
             {
-                bal2.gameObject.SetActive(true);
-
+                if (WinRun == true)
+                {
+                    bal3.gameObject.SetActive(true);
+                }
+                else if (failRun == true)
+                {
+                    balDoc.gameObject.SetActive(true);
+                }
                 nakedPlayer.gameObject.SetActive(false);
                 doc1.gameObject.SetActive(false);
                 doc2.gameObject.SetActive(false);

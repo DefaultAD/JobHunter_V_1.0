@@ -22,6 +22,10 @@ public class DoorChange : MonoBehaviour
     public Material greenMat;
     public Material blueMat;
 
+    [Header("NPC's")]
+    public GameObject docNPC;
+    public GameObject balNPC;
+
     private void Start()
     {
         foreach (var obj in doctorDoors)
@@ -57,7 +61,10 @@ public class DoorChange : MonoBehaviour
 
             docNameplate.SetActive(true);
             balNameplate.SetActive(false);
-            
+
+            docNPC.SetActive(true);
+            balNPC.SetActive(false);
+
         }
 
         if (other.name == "Door1BallerinaChange")
@@ -77,6 +84,9 @@ public class DoorChange : MonoBehaviour
 
             docNameplate.SetActive(false);
             balNameplate.SetActive(true);
+
+            balNPC.SetActive(true);
+            docNPC.SetActive(false);
         }
     }
 }

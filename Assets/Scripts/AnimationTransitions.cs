@@ -7,14 +7,17 @@ public class AnimationTransitions : MonoBehaviour
     public GameManager gameManager;
 
     public Animator animationFail;
-    public Animator animationWin;
+    public Animator animationBal;
+    public Animator animationDoc;
 
     public GameObject scoreCanvas;
     public GameObject playerOne;
-    public GameObject newPosition;
+    public GameObject newPositionDoc;
+    public GameObject newPositionBal;
 
     public Camera mainCam;
-    public Camera endCam;
+    public Camera endCamDoc;
+    public Camera endCamBal;
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +25,16 @@ public class AnimationTransitions : MonoBehaviour
         animationFail.SetBool("isWalking", true);
         animationFail.SetBool("isDancing", false);
 
-        animationWin.SetBool("isWalking", true);
-        animationWin.SetBool("isDancing", false);
+        animationDoc.SetBool("isWalking", true);
+        animationDoc.SetBool("isDancing", false);
+
+        animationBal.SetBool("isWalking", true);
+        animationBal.SetBool("isDancing", false);
 
         scoreCanvas.gameObject.SetActive(true);
 
         mainCam.gameObject.SetActive(true);
-        endCam.gameObject.SetActive(false);
+        endCamDoc.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -37,16 +43,16 @@ public class AnimationTransitions : MonoBehaviour
         
     }
 
-    IEnumerator animationWait()
-    {
-        yield return new WaitForSeconds(1.5f);
+    //IEnumerator animationWait()
+    //{
+    //    yield return new WaitForSeconds(1.5f);
 
-        animationFail.SetBool("isDancing", true);
-        animationFail.SetBool("isDefeated", false);
+    //    animationFail.SetBool("isDancing", true);
+    //    animationFail.SetBool("isDefeated", false);
 
-        //animationWin.SetBool("isVictorius", true);
+    //    //animationWin.SetBool("isVictorius", true);
 
-    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -58,21 +64,30 @@ public class AnimationTransitions : MonoBehaviour
 
         if (other.tag == "EndLevelScene")
         {
-            playerOne.transform.position = newPosition.transform.position;
+            if (gameManager.playerScript.scoreDocCheck == true)
+            {
+                playerOne.transform.position = newPositionDoc.transform.position;
+                endCamDoc.gameObject.SetActive(true);
+            }
+            if (gameManager.playerScript.scoreBalCheck == true)
+            {
+                playerOne.transform.position = newPositionBal.transform.position;
+                endCamBal.gameObject.SetActive(true);
+            }
 
-            endCam.gameObject.SetActive(true);
             mainCam.gameObject.SetActive(false);
             scoreCanvas.gameObject.SetActive(false);
 
-            animationFail.SetBool("isDefeated", true);
-            animationFail.SetBool("isDancing", false);
+            animationFail.SetBool("isDancing", true);
             animationFail.SetBool("isWalking", false);
 
-            animationWin.SetBool("isDancing", true);
-            animationWin.SetBool("isWalking", false);
-            animationWin.SetBool("isVictorius", false);
+            animationDoc.SetBool("isDancing", true);
+            animationDoc.SetBool("isWalking", false);
 
-            StartCoroutine(animationWait());
+            animationBal.SetBool("isDancing", true);
+            animationBal.SetBool("isWalking", false);
+
+            //StartCoroutine(animationWait());
 
             //gameManager.playerMovementScript.movementLimit = 0;
             gameManager.playerMovementScript.movementSpeed = 0;
