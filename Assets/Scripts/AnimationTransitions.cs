@@ -16,15 +16,10 @@ public class AnimationTransitions : MonoBehaviour
     public GameObject newPositionBal;
 
     public Camera mainCamera;
-    public Camera docCamera;
-    public Camera belCamera;
-
+        
     // Start is called before the first frame update
     void Start()
-    {
-        docCamera.gameObject.SetActive(false);
-        belCamera.gameObject.SetActive(false);
-
+    {        
         animationFail.SetBool("isWalking", true);
         animationFail.SetBool("isDancing", false);
 
@@ -66,16 +61,14 @@ public class AnimationTransitions : MonoBehaviour
         {        
             if (gameManager.playerScript.scoreDocCheck == true)
             {
-                playerOne.transform.position = newPositionDoc.transform.position;
-                docCamera.gameObject.SetActive(true);
+                playerOne.transform.position = newPositionDoc.transform.position;                
             }
             if (gameManager.playerScript.scoreBalCheck == true)
             {
                 playerOne.transform.position = newPositionBal.transform.position;
-                belCamera.gameObject.SetActive(true);
             }
 
-            mainCamera.gameObject.SetActive(false);
+            //mainCamera.gameObject.SetActive(false);
             scoreCanvas.gameObject.SetActive(false);
 
             animationFail.SetBool("isDancing", true);
