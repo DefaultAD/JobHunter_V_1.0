@@ -16,6 +16,8 @@ public class PickUpColor : MonoBehaviour
     public bool score1PickUpCheck;
     public bool score2PickUpCheck;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
