@@ -67,15 +67,15 @@ public class AnimationTransitions : MonoBehaviour
             if (gameManager.playerScript.scoreDocCheck == true)
             {
                 playerOne.transform.position = newPositionDoc.transform.position;
-                endCamDoc.gameObject.SetActive(true);
+                //endCamDoc.gameObject.SetActive(true);
             }
             if (gameManager.playerScript.scoreBalCheck == true)
             {
                 playerOne.transform.position = newPositionBal.transform.position;
-                endCamBal.gameObject.SetActive(true);
+                //endCamBal.gameObject.SetActive(true);
             }
 
-            mainCam.gameObject.SetActive(false);
+            //mainCam.gameObject.SetActive(false);
             scoreCanvas.gameObject.SetActive(false);
 
             animationFail.SetBool("isDancing", true);

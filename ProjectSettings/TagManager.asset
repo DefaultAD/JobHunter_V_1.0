@@ -11,6 +11,7 @@ TagManager:
   - BallerinaDoor
   - FinalDoor
   - EndLevelScene
+  - ScoreText
   layers:
   - Default
   - TransparentFX

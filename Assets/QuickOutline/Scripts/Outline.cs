@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [DisallowMultipleComponent]
 
@@ -22,9 +23,6 @@ public class Outline : MonoBehaviour {
 
     public bool score1PickUpCheck;
     public bool score2PickUpCheck;
-
-    public GameObject docPickUp;
-    public GameObject belPickUp;
 
 
     public enum Mode {
@@ -108,6 +106,13 @@ public class Outline : MonoBehaviour {
 
     // Apply material properties immediately
     needsUpdate = true;
+
+        if (pickUp.tag == "ScoreText")
+        {
+            var outline = gameObject.GetComponent<Outline>();
+
+            outline.OutlineColor = Color.white;
+        }
   }
 
   void OnEnable() {
