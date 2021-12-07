@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public bool initialized;
     public bool camFollow = false;
 
-    public float cameraOffset;
+    public Vector3 cameraOffset;
     Touch touch;
 
     public void Start()
@@ -25,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
         if (initialized)
         {
             Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + (Time.deltaTime * movementSpeed));
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y,  newPos.z - cameraOffset);
+            //Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y,  newPos.z - cameraOffset.z);
+            Camera.main.transform.position = new Vector3(cameraOffset.x, cameraOffset.y, newPos.z - cameraOffset.z);
 
             transform.position = newPos;
 

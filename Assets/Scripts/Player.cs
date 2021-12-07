@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
 
     [Header("Door GameObjects")]
     public GameObject suit;
-    public GameObject shoes;
+    public GameObject tiara;
     public GameObject toTo;
     public GameObject coat;
     public GameObject hat;
@@ -208,7 +208,7 @@ public class Player : MonoBehaviour
                 bal2Active = true;
                 DeactivateCostumes();
 
-                shoes.SetActive(false);
+                tiara.SetActive(false);
             }
 
             if (other.gameObject.name == "Door7")
