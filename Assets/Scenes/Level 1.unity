@@ -3756,8 +3756,8 @@ MonoBehaviour:
   scoreDocCheck: 1
   scoreBalCheck: 1
   scoreText: {fileID: 857946871}
-  failRun: 1
-  WinRun: 0
+  failRun: 0
+  WinRun: 1
 --- !u!136 &823946283
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19811,7 +19811,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0b7d45e3236fd384c8cde01c0d652ebe, type: 2}
+  - {fileID: 2100000, guid: d4d058af0f57bc14a87e835365da8529, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
