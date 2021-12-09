@@ -22,7 +22,6 @@ public class CameraFollow : MonoBehaviour
     {
         if (playerMovement.camFollow == true && player.scoreBalCheck == true)
         {
-            Debug.Log("yes it works! fuck yes!");
             Vector3 playerPosition = balTransform.transform.position + new Vector3(0, 3, -3.2f);
             transform.position = Vector3.Slerp(transform.position, playerPosition, smoothFactor);
 

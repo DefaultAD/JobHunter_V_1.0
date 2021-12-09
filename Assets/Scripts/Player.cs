@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     public Text scoreText;
 
     public bool failRun;
-    public bool WinRun;
+    public bool winRun;
 
     PlayerMovement playerMovement;
 
@@ -118,6 +118,7 @@ public class Player : MonoBehaviour
 
             if (other.gameObject.name == "Door0DoctorChange")
             {
+
                 Debug.Log("Color check!");
                 scoreDocCheck = true;
                 scoreBalCheck = false;                
@@ -151,6 +152,15 @@ public class Player : MonoBehaviour
             }
             if(other.gameObject.name == "Door6")
             {
+                if (scoreDocCheck == true)
+                {
+                    winRun = true;
+                }
+                else if (scoreBalCheck == true)
+                {
+                    failRun = false;
+                }
+
                 win = true;
                 doc3Active = true;
                 DeactivateCostumes();
@@ -213,6 +223,14 @@ public class Player : MonoBehaviour
 
             if (other.gameObject.name == "Door7")
             {
+                if (scoreDocCheck == true)
+                {
+                    failRun = true;
+                }
+                else if (scoreBalCheck == true)
+                {
+                    winRun = true;
+                }
                 bal3Active = true;
                 DeactivateCostumes();
 
@@ -383,7 +401,7 @@ public class Player : MonoBehaviour
 
             if (bal3Active == true)
             {
-                if (WinRun == true)
+                if (winRun == true)
                 {
                     bal3.gameObject.SetActive(true);
                 }

@@ -4256,8 +4256,8 @@ MonoBehaviour:
   scoreDocCheck: 1
   scoreBalCheck: 1
   scoreText: {fileID: 857946871}
-  failRun: 1
-  WinRun: 0
+  failRun: 0
+  winRun: 0
 --- !u!136 &823946283
 CapsuleCollider:
   m_ObjectHideFlags: 0
