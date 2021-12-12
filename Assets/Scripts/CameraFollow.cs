@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (playerMovement.camFollow == true && player.scoreBalCheck == true)
         {
-            Vector3 playerPosition = balTransform.transform.position + new Vector3(0, 3, -3.2f);
+            Vector3 playerPosition = balTransform.transform.position + new Vector3(0, 3, -4.2f);
             transform.position = Vector3.Slerp(transform.position, playerPosition, smoothFactor);
 
             if (lookAtPlayer)
@@ -34,7 +34,7 @@ public class CameraFollow : MonoBehaviour
         if (playerMovement.camFollow == true && player.scoreDocCheck == true)
         {
             Debug.Log("yes it works! fuck yes!");
-            Vector3 playerPosition = docTransform.transform.position + new Vector3(0, 3, -3.2f);
+            Vector3 playerPosition = docTransform.transform.position + new Vector3(0, 3, -4.2f);
             transform.position = Vector3.Slerp(transform.position, playerPosition, smoothFactor);
 
             if (lookAtPlayer)
