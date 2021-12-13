@@ -8,8 +8,8 @@ public class CamLookAtPlayer : MonoBehaviour
     public GameObject playerTarget;
     public GameObject centreTarget;
     public float movementSpeed;
-
-    public float yrotation;
+    public GameObject playerPos;
+    public float offset;
 
     public GameManager gameManager;
     // Start is called before the first frame update
@@ -29,8 +29,11 @@ public class CamLookAtPlayer : MonoBehaviour
 
             transform.LookAt(newPosCamRot);
 
-            Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + (Time.deltaTime * movementSpeed));
-            transform.position = newPos;
+            //Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + (Time.deltaTime * movementSpeed));
+            //transform.position = newPos;
+
+            Vector3 newPos1 = new Vector3(transform.position.x, transform.position.y, playerPos.transform.position.z - offset);
+            transform.position = newPos1;
         }
         else if (gameManager.playerMovementScript.camFollow == true)
         {
