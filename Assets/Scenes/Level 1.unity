@@ -2555,12 +2555,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b758dc1193fcfa4438a7f491c1eb05fe, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8446287972642111886, guid: b758dc1193fcfa4438a7f491c1eb05fe, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8760375139354085603, guid: b758dc1193fcfa4438a7f491c1eb05fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a61a5dc38fdd9404b9ca90621d3335e9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b758dc1193fcfa4438a7f491c1eb05fe, type: 3}
 --- !u!4 &354585667 stripped
@@ -5341,7 +5345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3705e070d64cbb5469d32efa4aefa869, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7330425339270033114, guid: 3705e070d64cbb5469d32efa4aefa869, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7143,7 +7147,7 @@ PrefabInstance:
     - target: {fileID: -1761113334221035675, guid: ef70ac3a1e5d54446b32cefc04d03363, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 260142fde6f64bb4a8d3db2816897dea, type: 2}
+      objectReference: {fileID: 2100000, guid: b7afcef18d2cb8e4981dce76f40196ba, type: 2}
     - target: {fileID: 40597070079190855, guid: ef70ac3a1e5d54446b32cefc04d03363, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -16331,7 +16335,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7626191068330388430, guid: 88942404d71227e429740e304931f083, type: 3}
+  - {fileID: 2100000, guid: a61a5dc38fdd9404b9ca90621d3335e9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
